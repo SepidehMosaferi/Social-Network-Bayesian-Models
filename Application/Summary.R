@@ -83,24 +83,24 @@ apply(fit_HER_np$gam_n[,1:5], 2, quantile, prob=c(0.05, 0.25, 0.5, 0.75, 0.95))
 apply(fit_HER_np$gam_p[,1:5], 2, quantile, prob=c(0.05, 0.25, 0.5, 0.75, 0.95))
 
 ## posterior densities of error rates
-par(mfrow=c(1,2))
-boxplot(c(HER_ep_pos[[1]]),main="nonrel (Village 15) \n HER model",col="cyan",xlab="e+",
+par(mfrow=c(1,2)) ## Give the number of village based on "num"
+boxplot(c(HER_ep_pos[[1]]),main="nonrel (Village -) \n HER model",col="cyan",xlab="e+",
         cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
-boxplot(c(HER_en_pos[[1]]),main="nonrel (Village 15) \n HER model",col="cyan",xlab="e-",
+boxplot(c(HER_en_pos[[1]]),main="nonrel (Village -) \n HER model",col="cyan",xlab="e-",
         cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
 
-boxplot(c(HER_ep_pos[[2]]),main="rel (Village 15) \n HER model",col="cyan",xlab="e+",
+boxplot(c(HER_ep_pos[[2]]),main="rel (Village -) \n HER model",col="cyan",xlab="e+",
         cex.main=1.5,cex.lab=1.5,cex.axis=1.5) 
-boxplot(c(HER_en_pos[[2]]),main="rel (Village 15) \n HER model",col="cyan",xlab="e-",
+boxplot(c(HER_en_pos[[2]]),main="rel (Village -) \n HER model",col="cyan",xlab="e-",
         cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
 
-boxplot(c(HER_ep_pos[[3]]),main="templecompany (Village 15) \n HER model",col="cyan",xlab="e+",
+boxplot(c(HER_ep_pos[[3]]),main="templecompany (Village -) \n HER model",col="cyan",xlab="e+",
         cex.main=1.5,cex.lab=1.5,cex.axis=1.5) 
-boxplot(c(HER_en_pos[[3]]),main="templecompany (Village 15) \n HER model",col="cyan",xlab="e-",
+boxplot(c(HER_en_pos[[3]]),main="templecompany (Village -) \n HER model",col="cyan",xlab="e-",
         cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
 
 par(mfrow=c(1,2))
-boxplot(fit_BER$e_p,main="All relations (Village 15) \n Butts model",col="cyan",xlab="e+",
+boxplot(fit_BER$e_p,main="All relations (Village -) \n Butts model",col="cyan",xlab="e+",
         cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
-boxplot(fit_BER$e_n,main="All relations (Village 15) \n Butts model",col="cyan",xlab="e-",
+boxplot(fit_BER$e_n,main="All relations (Village -) \n Butts model",col="cyan",xlab="e-",
         cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
