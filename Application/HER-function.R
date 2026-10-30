@@ -20,19 +20,17 @@ HER <- function(Y, X, ID, Z=NULL, Phi_est=F, draw=5000, burn=2000){
   N <- unlist(lapply(ID, max))
   MC <- draw - burn 
   
-  # nonparametric term (Z) 
+  # design matrix
   qq <- 0
+  XZ <- X
   if(is.null(Z)==F){
-    qq <- dim(Z)[2]
-    if(dim(Z)[1]!=(2*n)){
-      print("Row dimensions of X and Z are not equal.")
-      break()
+    XZ <- list()
+    for(k in 1:K){
+      XZ[[k]] <- cbind(X[[k]], Z[[k]])
     }
+    qq <- dim(Z[[1]])[2]
     lam_p <- lam_n <- 1
   }
-  
-  # design matrix
-  XZ <- X
   
   # initial values 
   gam_p <- c(-2, rep(0, p-1))    # coefficients for positive error prob

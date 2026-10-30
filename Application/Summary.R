@@ -76,31 +76,29 @@ plot(XZ2[,1], apply(reg_pos2, 2, mean))
 ## posterior summary of coefficients in error probability
 # covariates are (intercept, gender1, age1, gender2, age2)
 # 1 and 2 indicate the subject at the start and end of a directed arrow
-apply(fit_HER$gam_n, 2, quantile, prob=c(0.05, 0.25, 0.5, 0.75, 0.95))
-apply(fit_HER$gam_p, 2, quantile, prob=c(0.05, 0.25, 0.5, 0.75, 0.95))
+apply(fit_HER$gam_p, 2, quantile, prob=c(0.025, 0.25, 0.5, 0.75, 0.975))
+apply(fit_HER$gam_n, 2, quantile, prob=c(0.025, 0.25, 0.5, 0.75, 0.975))
 
-apply(fit_HER_np$gam_n[,1:5], 2, quantile, prob=c(0.05, 0.25, 0.5, 0.75, 0.95))
-apply(fit_HER_np$gam_p[,1:5], 2, quantile, prob=c(0.05, 0.25, 0.5, 0.75, 0.95))
+apply(fit_HER_np$gam_p, 2, quantile, prob=c(0.025, 0.25, 0.5, 0.75, 0.975))
+apply(fit_HER_np$gam_n, 2, quantile, prob=c(0.025, 0.25, 0.5, 0.75, 0.975))
 
 ## posterior densities of error rates
-par(mfrow=c(1,2)) ## Give the number of village based on "num"
+par(mfrow=c(1,4)) ## Give the number of village based on "num"
 boxplot(c(HER_ep_pos[[1]]),main="nonrel (Village -) \n HER model",col="cyan",xlab="e+",
-        cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
-boxplot(c(HER_en_pos[[1]]),main="nonrel (Village -) \n HER model",col="cyan",xlab="e-",
-        cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
-
+        cex.main=1.5,cex.lab=1.5,cex.axis=1.5,ylim=c(0,1))
 boxplot(c(HER_ep_pos[[2]]),main="rel (Village -) \n HER model",col="cyan",xlab="e+",
-        cex.main=1.5,cex.lab=1.5,cex.axis=1.5) 
-boxplot(c(HER_en_pos[[2]]),main="rel (Village -) \n HER model",col="cyan",xlab="e-",
-        cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
-
+        cex.main=1.5,cex.lab=1.5,cex.axis=1.5,ylim=c(0,1)) 
 boxplot(c(HER_ep_pos[[3]]),main="templecompany (Village -) \n HER model",col="cyan",xlab="e+",
-        cex.main=1.5,cex.lab=1.5,cex.axis=1.5) 
-boxplot(c(HER_en_pos[[3]]),main="templecompany (Village -) \n HER model",col="cyan",xlab="e-",
-        cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
-
-par(mfrow=c(1,2))
+        cex.main=1.5,cex.lab=1.5,cex.axis=1.5,ylim=c(0,1)) 
 boxplot(fit_BER$e_p,main="All relations (Village -) \n Butts model",col="cyan",xlab="e+",
-        cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
+        cex.main=1.5,cex.lab=1.5,cex.axis=1.5,ylim=c(0,1))
+
+par(mfrow=c(1,4)) 
+boxplot(c(HER_en_pos[[1]]),main="nonrel (Village -) \n HER model",col="cyan",xlab="e-",
+        cex.main=1.5,cex.lab=1.5,cex.axis=1.5,ylim=c(0,1))
+boxplot(c(HER_en_pos[[2]]),main="rel (Village -) \n HER model",col="cyan",xlab="e-",
+        cex.main=1.5,cex.lab=1.5,cex.axis=1.5,ylim=c(0,1))
+boxplot(c(HER_en_pos[[3]]),main="templecompany (Village -) \n HER model",col="cyan",xlab="e-",
+        cex.main=1.5,cex.lab=1.5,cex.axis=1.5,ylim=c(0,1))
 boxplot(fit_BER$e_n,main="All relations (Village -) \n Butts model",col="cyan",xlab="e-",
-        cex.main=1.5,cex.lab=1.5,cex.axis=1.5)
+        cex.main=1.5,cex.lab=1.5,cex.axis=1.5,ylim=c(0,1))
